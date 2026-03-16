@@ -24,9 +24,17 @@ public class Compress {
 //        String ne = ans.toString();
 //        if(ne.length()<str.length()) System.out.println(ne);
 //        else System.out.println(str);
-        int count = 0;
+        int count = 1;
         StringBuilder st = new StringBuilder();
-
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == arr[i - 1]) count++;
+            else {
+                st.append(arr[i - 1]).append(count);
+                count = 1;
+            }
+        }
+        st.append(arr[arr.length - 1]).append(count);
+        System.out.println(st);
 
     }
 
